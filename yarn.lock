@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@redux-offline/redux-offline@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@redux-offline/redux-offline/-/redux-offline-2.3.1.tgz#538a1657a06799dc4960530563ce93b8d0f5f9a0"
+  dependencies:
+    babel-runtime "^6.26.0"
+    redux-persist "^4.5.0"
+
 "@types/jss@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@types/jss/-/jss-9.3.0.tgz#0f8484fd03ded206917be27b58217f274a0ad59f"
@@ -2046,9 +2053,9 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-d2-ui@^28.0.14:
-  version "28.0.14"
-  resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-28.0.14.tgz#11c336f9c19813e1be03d728668b8fc018d442d7"
+d2-ui@^29.0.0:
+  version "29.0.5"
+  resolved "https://registry.yarnpkg.com/d2-ui/-/d2-ui-29.0.5.tgz#47bbb2a7461e257c680c4016ec25a568a9e07121"
 
 d2-utilizr@^0.2.15:
   version "0.2.15"
@@ -2062,9 +2069,9 @@ d2-utilizr@^0.2.15:
     lodash.isset "^4.3.0"
     lodash.isstring "^4.0.1"
 
-d2@^28.3.0:
-  version "28.3.0"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-28.3.0.tgz#7ca7e5369849aa5d8e8e3659c3b46999541508ff"
+d2@^29.0.0:
+  version "29.0.1"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-29.0.1.tgz#3cbd44d4e703b429b226bdf61730a915c1a09d1d"
   dependencies:
     docdash "^0.4.0"
     jsdoc "^3.5.5"
@@ -4604,7 +4611,7 @@ json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@~5.0.1:
+json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -4842,6 +4849,10 @@ locate-path@^2.0.0:
   dependencies:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
+
+lodash-es@^4.17.4:
+  version "4.17.5"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.5.tgz#9fc6e737b1c4d151d8f9cae2247305d552ce748f"
 
 lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.4"
@@ -6719,9 +6730,13 @@ redux-observable@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.16.0.tgz#dc431d0f47a9c3af232639d6bdd70d80c1b620d9"
 
-redux-optimistic-ui@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/redux-optimistic-ui/-/redux-optimistic-ui-3.1.0.tgz#efd07bb8483185db221b50f3d0ea42ce93b12d6d"
+redux-persist@^4.5.0:
+  version "4.10.2"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.10.2.tgz#8efdb16cfe882c521a78a6d0bfdfef2437f49f96"
+  dependencies:
+    json-stringify-safe "^5.0.1"
+    lodash "^4.17.4"
+    lodash-es "^4.17.4"
 
 redux@^3.7.2:
   version "3.7.2"

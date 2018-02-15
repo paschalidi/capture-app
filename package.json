@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@redux-offline/redux-offline": "^2.3.1",
     "classnames": "^2.2.5",
     "create-react-class": "^15.6.2",
-    "d2": "^28.3.0",
-    "d2-ui": "^28.0.14",
+    "d2": "^29.0.0",
+    "d2-ui": "^29.0.0",
     "d2-utilizr": "^0.2.15",
     "date-fns": "^1.29.0",
     "fake-indexeddb": "^2.0.3",
@@ -32,7 +33,6 @@
     "redux-batched-actions": "^0.2.1",
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.16.0",
-    "redux-optimistic-ui": "^3.1.0",
     "reselect": "^3.0.1",
     "rxjs": "^5.5.2",
     "typeface-roboto": "^0.0.45"
