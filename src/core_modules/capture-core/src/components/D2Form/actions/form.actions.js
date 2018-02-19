@@ -1,6 +1,5 @@
 // @flow
 import log from 'loglevel';
-import { ensureState } from 'redux-optimistic-ui';
 
 import metaDataCollection from '../../../metaData/programCollection/programCollection';
 import { valueConvertersForType } from '../../../converters/clientToForm';

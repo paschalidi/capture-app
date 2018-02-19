@@ -1,7 +1,6 @@
 // @flow
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/concatMap';
-import { ensureState } from 'redux-optimistic-ui';
 
 import { convertStateFormValuesToClient } from '../../../converters/helpers/formToClient';
 import { convertClientValuesToServer } from '../../../converters/helpers/clientToServer';
@@ -37,7 +36,7 @@ export const completeEventEpic = (action$, store: ReduxStore) =>
 
             // $FlowSuppress
             const serverValues = convertClientValuesToServer(clientValues, clientValuesContainer.stage);
-            return completeEvent(clientValues, serverValues, eventId, ensureState(state.events)[eventId], id);
+            return completeEvent(clientValues, serverValues, eventId, state.events[eventId], id);
         });
 
 export const saveEventEpic = (action$, store: ReduxStore) =>
@@ -55,5 +54,5 @@ export const saveEventEpic = (action$, store: ReduxStore) =>
             // $FlowSuppress
             const serverValues = convertClientValuesToServer(clientValues, clientValuesContainer.stage);
 
-            return saveEvent(clientValues, serverValues, eventId, ensureState(state.events)[eventId], id);
+            return saveEvent(clientValues, serverValues, eventId, state.events[eventId], id);
         });
