@@ -1,5 +1,4 @@
 // @flow
-import { optimistic } from 'redux-optimistic-ui';
 import { createReducerDescription } from '../../trackerRedux/trackerReducer';
 import { actionTypes as enrollmentActionTypes } from '../../actions/__TEMP__/enrollment.actions';
 import { actionTypes as dataEntryActionTypes } from '../../components/DataEntry/actions/dataEntry.actions';
@@ -27,7 +26,7 @@ export const eventsDesc = createReducerDescription({
         event.status = payload.event.status;
         return newState;
     },
-}, 'events', {}, optimistic);
+}, 'events', {});
 
 export const eventsValuesDesc = createReducerDescription({
     [enrollmentActionTypes.ENROLLMENT_LOADED]: (state, action) => {
@@ -56,4 +55,4 @@ export const eventsValuesDesc = createReducerDescription({
         newState[payload.eventId] = action.payload.clientValues;
         return newState;
     },
-}, 'eventsValues', {}, optimistic);
+}, 'eventsValues', {});
