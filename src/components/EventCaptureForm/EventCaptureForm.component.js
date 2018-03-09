@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { wordToValidatorMap } from 'd2-ui/lib/forms/Validators';
 import DataEntry from 'capture-core/components/DataEntry/DataEntry.container';
 import withCompleteButton from 'capture-core/components/DataEntry/withCompleteButton';

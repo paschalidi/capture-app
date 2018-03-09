@@ -8,7 +8,6 @@ import TrueOnly from '../../FormFields/Generic/D2TrueOnly.component';
 import D2Date from '../../FormFields/DateAndTime/D2Date/D2Date.component';
 import D2DateTime from '../../FormFields/DateAndTime/D2DateTime/D2DateTime.component';
 
-import OptionsCheckboxes from '../../FormFields/Options/Checkboxes/OptionsCheckboxes.component';
 import OptionsSelect from '../../FormFields/Options/SelectVirtualized/OptionsSelectVirtualized.component';
 import withSelectTranslations from '../../FormFields/Options/SelectVirtualized/withTranslations';
 import withConvertedOptionSet from '../../FormFields/Options/withConvertedOptionSet';

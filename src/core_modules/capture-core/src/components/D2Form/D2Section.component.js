@@ -14,10 +14,6 @@ type Props = {
 class D2Section extends Component<Props> {
     sectionFieldsInstance: ?D2SectionFields;
 
-    constructor(props: Props) {
-        super(props);
-    }
-
     renderSectionHeader() {
         const title = this.props.sectionMetaData.name;
 

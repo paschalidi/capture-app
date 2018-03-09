@@ -2,11 +2,8 @@
 /* eslint-disable react/no-multi-comp */
 import * as React from 'react';
 import { Component } from 'react';
-import log from 'loglevel';
 import { withStyles } from 'material-ui-next/styles';
 
-import errorCreator from '../../utils/errorCreator';
-import programCollection from '../../metaData/programCollection/programCollection';
 import getStageFromEvent from '../../metaData/helpers/getStageFromEvent';
 
 import D2Form from '../D2Form/D2Form.component';
@@ -38,10 +35,6 @@ class DataEntry extends Component<Props> {
     };
 
     formInstance: ?D2Form;
-
-    constructor(props: Props) {
-        super(props);
-    }
 
     getWrappedInstance() {
         return this.formInstance;

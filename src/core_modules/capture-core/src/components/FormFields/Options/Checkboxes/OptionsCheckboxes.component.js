@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import Checkbox from 'material-ui-next/Checkbox';
 import { FormControl, FormLabel, FormGroup, FormControlLabel } from 'material-ui-next/Form';
-import { InputLabel } from 'material-ui-next/Input';
 import { withStyles } from 'material-ui-next/styles';
 
 import RadioOffIcon from 'material-ui/svg-icons/image/panorama-fish-eye';
@@ -148,7 +147,7 @@ class OptionsCheckboxesField extends Component<Props> {
     }
 
     render() {
-        const { label, required, error, classes } = this.props;
+        const { label, required, error } = this.props;
 
         this.setCheckedStatusForBoxes();
 

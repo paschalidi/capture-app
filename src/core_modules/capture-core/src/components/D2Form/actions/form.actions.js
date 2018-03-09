@@ -1,9 +1,4 @@
 // @flow
-import log from 'loglevel';
-
-import metaDataCollection from '../../../metaData/programCollection/programCollection';
-import { valueConvertersForType } from '../../../converters/clientToForm';
-import errorCreator from '../../../utils/errorCreator';
 import { actionCreator } from '../../../actions/actions.utils';
 
 export const actionTypes = {

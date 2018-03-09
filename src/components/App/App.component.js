@@ -32,13 +32,13 @@ class App extends Component<Props> {
     renderContents() {
         return (
             <Provider store={this.props.store}>
-            <LegacyMuiThemeProvider theme={legacyTheme}>
-                <MuiThemeProvider theme={theme}>
-                    <LoadD2AppContents />
-                    <FeedbackBar />
-                </MuiThemeProvider>
-            </LegacyMuiThemeProvider>
-             </Provider>
+                <LegacyMuiThemeProvider theme={legacyTheme}>
+                    <MuiThemeProvider theme={theme}>
+                        <LoadD2AppContents />
+                        <FeedbackBar />
+                    </MuiThemeProvider>
+                </LegacyMuiThemeProvider>
+            </Provider>
         );
     }
 
