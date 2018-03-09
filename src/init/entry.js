@@ -20,13 +20,6 @@ import { startEnrollmentLoad } from 'capture-core/actions/__TEMP__/enrollment.ac
 const DOM_ID = 'app';
 
 async function runApp() {
-    render(
-        <App
-            store={store}
-        />,
-        document.getElementById(DOM_ID),
-    );
-
     try {
         const d2 = await initializeD2();
         setD2(d2);
@@ -48,7 +41,13 @@ async function runApp() {
 
         render(<div>{message}</div>, document.getElementById(DOM_ID));
     }
+
+    render(
+        <App
+            store={store}
+        />,
+        document.getElementById(DOM_ID),
+    );
 }
 
 runApp();
-
