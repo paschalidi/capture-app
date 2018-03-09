@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { withStyles } from 'material-ui-next/styles';
 
 import D2Section from './D2Section.component';

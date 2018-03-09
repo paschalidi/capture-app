@@ -8,7 +8,6 @@ import environments from 'capture-core/constants/environments';
 
 import { setD2 } from 'capture-core/d2/d2Instance';
 
-import './react16Temp';
 import App from '../components/App/App.component';
 import store from '../store';
 import { initializeD2, initializeMetaData, initializeSessionAppCache, getBaseSettings } from './init';
