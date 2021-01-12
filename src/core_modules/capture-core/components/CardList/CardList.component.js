@@ -33,7 +33,7 @@ const CardListIndex = ({
 }: OwnProps & CssClasses) => {
     const { profileImageDataElement, dataElementsExceptProfileImage } = makeElementsContainerSelector()(dataElements);
     return (
-        <div data-test="dhis2-capture-search-results-list">
+        <div data-test="search-results-list">
             {
                 (!items || items.length === 0)
                     ?

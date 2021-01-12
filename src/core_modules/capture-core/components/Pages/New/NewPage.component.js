@@ -88,7 +88,7 @@ const NewPagePlain = ({
     return (<>
         <LockedSelector />
 
-        <div data-test="dhis2-capture-registration-page-content" className={classes.container} >
+        <div data-test="registration-page-content" className={classes.container} >
             {
                 newPageStatus === newPageStatuses.DEFAULT &&
                 <Paper className={classes.paper}>

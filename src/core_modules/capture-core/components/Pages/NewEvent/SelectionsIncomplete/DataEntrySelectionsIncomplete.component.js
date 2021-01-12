@@ -36,7 +36,7 @@ const DataEntrySelectionsIncompletePlain = ({ classes, onCancel, isProgramSelect
                 className={classes.buttonRow}
             >
                 <Button
-                    dataTest="dhis2-capture-new-page-cancel-button"
+                    dataTest="new-page-cancel-button"
                     variant="text"
                     color="primary"
                     onClick={onCancel}

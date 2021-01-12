@@ -75,7 +75,7 @@ class TeiRelationshipSearchResultsPlain extends React.Component<Props> {
         return (
             <div className={classes.itemActionsContainer}>
                 <Button
-                    dataTest={`dhis2-capture-relationship-tei-link-${item.id}`}
+                    dataTest={`relationship-tei-link-${item.id}`}
                     color="primary"
                     onClick={() => this.onAddRelationship(item)}
                 >

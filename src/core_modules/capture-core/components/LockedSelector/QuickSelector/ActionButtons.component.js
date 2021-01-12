@@ -56,7 +56,7 @@ const Index = ({
             <Button
                 small
                 secondary
-                dataTest="dhis2-capture-new-event-button"
+                dataTest="new-event-button"
                 onClick={onNewClick}
             >
                 {
@@ -71,7 +71,7 @@ const Index = ({
                     <Button
                         small
                         secondary
-                        dataTest="dhis2-capture-find-button"
+                        dataTest="find-button"
                         className={classes.marginLeft}
                         onClick={onFindClickWithoutProgramId}
                     >
@@ -81,7 +81,7 @@ const Index = ({
                     <DropdownButton
                         small
                         secondary
-                        dataTest="dhis2-capture-find-button"
+                        dataTest="find-button"
                         className={classes.marginLeft}
                         component={
                             <FlyoutMenu
@@ -89,12 +89,12 @@ const Index = ({
                                 maxWidth="250px"
                             >
                                 <MenuItem
-                                    dataTest="dhis2-capture-find-menuitem-one"
+                                    dataTest="find-menuitem-one"
                                     label={`Find a ${trackedEntityName} in ${programName}`}
                                     onClick={onFindClick}
                                 />
                                 <MenuItem
-                                    dataTest="dhis2-capture-find-menuitem-two"
+                                    dataTest="find-menuitem-two"
                                     label="Find..."
                                     onClick={onFindClickWithoutProgramId}
                                 />
@@ -110,7 +110,7 @@ const Index = ({
                 showResetButton ?
                     <button
                         className={classes.buttonAsLink}
-                        data-test="dhis2-capture-start-again-button"
+                        data-test="start-again-button"
                         onClick={onStartAgainClick}
                     >
                         { i18n.t('Clear selections') }

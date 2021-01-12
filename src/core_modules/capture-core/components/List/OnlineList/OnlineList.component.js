@@ -284,13 +284,13 @@ class Index extends React.Component<Props> {
             >
                 <Table
                     className={classes.table}
-                    data-test="dhis2-capture-event-list-table"
+                    data-test="event-list-table"
                 >
                     <Head>
                         {this.renderHeaderRow(visibleColumns)}
                     </Head>
                     <Body
-                        data-test="dhis2-capture-event-list-body"
+                        data-test="event-list-body"
                     >
                         {this.renderBody(visibleColumns)}
                     </Body>

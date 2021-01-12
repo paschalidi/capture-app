@@ -22,7 +22,7 @@ export const EventWorkingListsRowMenuSetupPlain = ({ onDeleteEvent, classes, ...
         clickHandler: ({ eventId }) => onDeleteEvent(eventId),
         element: (
             <span
-                data-test="dhis2-capture-delete-event-button"
+                data-test="delete-event-button"
                 className={classes.deleteContainer}
             >
                 <Delete className={classes.deleteIcon} />

@@ -38,7 +38,7 @@ const ReviewDialogContentsPlain = ({ onLink, classes, dataElements, teis }: Prop
 
     return (
         <React.Fragment>
-            <DialogContent data-test="dhis2-capture-duplicates-modal">
+            <DialogContent data-test="duplicates-modal">
                 <DialogTitle className={classes.title}>
                     {i18n.t('Possible duplicates found')}
                 </DialogTitle>

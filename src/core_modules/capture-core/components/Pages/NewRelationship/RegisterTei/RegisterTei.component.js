@@ -56,7 +56,7 @@ const RegisterTeiPlain = ({
             </Button>
             <div style={{ marginLeft: 16 }}>
                 <Button
-                    dataTest="dhis2-capture-create-as-new-person"
+                    dataTest="create-as-new-person"
                     onClick={handleSaveFromDialog}
                     primary
                 >

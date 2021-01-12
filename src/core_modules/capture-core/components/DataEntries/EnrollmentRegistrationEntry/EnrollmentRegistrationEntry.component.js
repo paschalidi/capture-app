@@ -48,7 +48,7 @@ const EnrollmentRegistrationEntryPlain =
                       {
                           onSave &&
                           <Button
-                              dataTest="dhis2-capture-create-and-link-button"
+                              dataTest="create-and-link-button"
                               primary
                               onClick={onSave}
                               className={classes.marginTop}

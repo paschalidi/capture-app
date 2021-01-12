@@ -115,7 +115,7 @@ class Index extends React.Component<Props, State> {
                                     ref={this.handleReferenceInstanceRetrieved}
                                 >
                                     <IconButton
-                                        data-test="dhis2-capture-event-content-menu"
+                                        data-test="event-content-menu"
                                         onClick={this.toggleMenu}
                                     >
                                         <MoreHoriz />
