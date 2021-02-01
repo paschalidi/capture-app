@@ -3,6 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { withLabel as UIWithLabel } from 'capture-ui';
+import { NonBundledDhis2Icon } from '../../../NonBundledDhis2Icon';
 
 const getStyles = (theme: Theme) => ({
     label: {
@@ -34,7 +35,7 @@ const getStylesLabel = (theme: Theme) => ({
     },
 });
 
-type IconType = { data: string, color: string };
+type IconType = { name?: string, color?: string };
 
 type IconProps = {
     icon: ?IconType,
@@ -108,11 +109,14 @@ export default (hocParams?: ?HOCParams) => (InnerComponent: React.ComponentType<
             return null;
         }
         return (
-            <img
+            <NonBundledDhis2Icon
                 className={iconClass}
-                src={icon.data}
-                style={{ backgroundColor: icon.color }}
-                alt={`Icon for ${label || ''}`}
+                name={icon.name}
+                color={icon.color}
+                alternativeText={`Icon for ${label || ''}`}
+                cornerRadius={2}
+                width={22}
+                height={22}
             />
         );
     };

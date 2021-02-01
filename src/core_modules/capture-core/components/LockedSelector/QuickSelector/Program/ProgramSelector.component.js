@@ -17,6 +17,7 @@ import type { Program } from '../../../../metaData';
 import { resetProgramIdBase } from '../actions/QuickSelector.actions';
 import './programSelector.css';
 import LinkButton from '../../../Buttons/LinkButton.component';
+import { NonBundledDhis2Icon } from '../../../NonBundledDhis2Icon';
 
 const styles = (theme: Theme) => ({
     paper: {
@@ -101,11 +102,6 @@ const styles = (theme: Theme) => ({
         alignItems: 'center',
         paddingRight: 5,
     },
-    icon: {
-        width: 22,
-        height: 22,
-        borderRadius: 2,
-    },
 });
 
 type Props = {
@@ -136,22 +132,23 @@ class ProgramSelector extends Component<Props> {
         this.programsArray = Array.from(programCollection.values());
     }
 
-    getProgramIcon(program: Program) {
-        const classes = this.props.classes;
-        return program.icon.data
-            ? (
-                <div
-                    className={classes.iconContainer}
-                >
-                    <img
-                        style={{ backgroundColor: program.icon.color }}
-                        className={classes.icon}
-                        src={program.icon.data}
-                        alt={program.name}
-                    />
-                </div>
-            )
-            : null;
+    getProgramIcon({ icon: { color, name } = {}, name: programName }: Program) {
+        const { classes } = this.props;
+
+        return (
+            <div
+                className={classes.iconContainer}
+            >
+                <NonBundledDhis2Icon
+                    name={name || 'clinical_fe_outline'}
+                    color={color || '#e0e0e0'}
+                    alternativeText={programName}
+                    width={22}
+                    height={22}
+                    cornerRadius={2}
+                />
+            </div>
+        );
     }
 
     getOptionsFromPrograms(programs: Array<Program>) {
