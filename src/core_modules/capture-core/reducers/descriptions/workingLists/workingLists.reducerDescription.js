@@ -276,6 +276,33 @@ export const workingListsTemplatesDesc = createReducerDescription({
             },
         };
     },
+    [workingListsCommonActionTypes.TEMPLATE_SHARING_SETTINGS_SET]: (
+        state, {
+            payload: {
+                sharingSettings,
+                templateId,
+                storeId,
+            },
+        }) => {
+        const initialTemplates = state[storeId].templates;
+        const templateIndex = initialTemplates.findIndex(template => template.id === templateId);
+
+        const template = {
+            ...initialTemplates[templateIndex],
+            sharing: sharingSettings,
+        };
+
+        const updatedTemplates = [...initialTemplates];
+        updatedTemplates[templateIndex] = template;
+
+        return {
+            ...state,
+            [storeId]: {
+                ...state[storeId],
+                templates: updatedTemplates,
+            },
+        };
+    },
 }, 'workingListsTemplates');
 
 export const workingListsDesc = createReducerDescription({

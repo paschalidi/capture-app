@@ -5,7 +5,7 @@ import NewTemplateDialog from './NewTemplateDialog.component';
 import DeleteConfirmationDialog from './DeleteConfirmationDialog.component';
 import SharingDialog from './SharingDialog.component';
 import { dialogModes } from './dialogModes';
-import type { WorkingListTemplate } from '../workingLists.types';
+import type { WorkingListTemplate, SetTemplateSharingSettings } from '../workingLists.types';
 
 type PassOnProps = {
     onClose: Function,
@@ -18,6 +18,7 @@ type Props = {
     onAddTemplate: Function,
     onUpdateTemplate: Function,
     onDeleteTemplate: Function,
+    onSetSharingSettings: SetTemplateSharingSettings,
 };
 
 const TemplateMaintenance = (props: Props, ref) => {
@@ -27,6 +28,7 @@ const TemplateMaintenance = (props: Props, ref) => {
         onAddTemplate,
         onUpdateTemplate,
         onDeleteTemplate,
+        onSetSharingSettings,
         ...passOnProps
     } = props;
 
@@ -74,9 +76,9 @@ const TemplateMaintenance = (props: Props, ref) => {
                 templateName={currentTemplate.name}
             />
             <SharingDialog
-                {...passOnProps}
                 open={mode === dialogModes.SHARING}
                 templateId={currentTemplate.id}
+                onClose={onSetSharingSettings}
             />
         </>
     );

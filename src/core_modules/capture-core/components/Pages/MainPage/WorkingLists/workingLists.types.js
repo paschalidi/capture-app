@@ -142,6 +142,25 @@ export type ListViewBuilderContextData = {|
     stickyFilters?: StickyFilters,
 |};
 
+export type SharingSettings = {|
+    id: string,
+    name: string,
+    externalAccess: boolean,
+    publicAccess: string,
+    user: { id: string, name: string },
+    usereAccesses: Array<{
+        id: string,
+        name: string,
+        access: string,
+    }>,
+    userGroupAccesses: Array<{
+        id: string,
+        name: string,
+        access: string,
+    }>,
+|};
+export type SetTemplateSharingSettings = (sharingSettings: SharingSettings, templateId: string) => void;
+
 export type InterfaceProps = $ReadOnly<{|
     categories?: Categories,
     columns: ColumnConfigs,
@@ -173,6 +192,7 @@ export type InterfaceProps = $ReadOnly<{|
     onSelectRestMenuItem: SelectRestMenuItem,
     onSelectTemplate: SelectTemplate,
     onSetListColumnOrder: SetColumnOrder,
+    onSetTemplateSharingSettings?: SetTemplateSharingSettings,
     onSortList: Sort,
     onUnloadingContext?: UnloadingContext,
     onUpdateFilter: UpdateFilter,

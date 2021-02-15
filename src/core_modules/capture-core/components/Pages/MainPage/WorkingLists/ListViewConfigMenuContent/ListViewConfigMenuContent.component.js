@@ -1,9 +1,10 @@
 // @flow
-import React, { type ComponentType } from 'react';
+import React, { useState, useRef, useCallback, useMemo, type ComponentType } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import i18n from '@dhis2/d2-i18n';
 import { ListViewLoader } from '../ListViewLoader';
 import { TemplateMaintenance, dialogModes } from '../TemplateMaintenance';
+import type { SharingSettings } from '../workingLists.types';
 import type { Props } from './listViewConfigMenuContent.types';
 
 const getStyles = (theme: Theme) => ({
@@ -18,34 +19,40 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
         onAddTemplate,
         onUpdateTemplate,
         onDeleteTemplate,
+        onSetTemplateSharingSettings,
         currentViewHasTemplateChanges,
         classes,
         customListViewMenuContents,
         ...passOnProps
     } = props;
-    const [maintenanceDialogOpenMode, setMaintenanceDialogOpenMode] = React.useState(null);
-    const templateMaintenanceInstance = React.useRef(null);
+    const [maintenanceDialogOpenMode, setMaintenanceDialogOpenMode] = useState(null);
+    const templateMaintenanceInstance = useRef(null);
 
-    const closeHandler = React.useCallback(() => {
+    const handleClose = useCallback(() => {
         setMaintenanceDialogOpenMode(null);
     }, []);
 
-    const updateTemplateHandler = React.useCallback((...args) => {
+    const handleUpdateTemplate = useCallback((...args) => {
         setMaintenanceDialogOpenMode(null);
         onUpdateTemplate && onUpdateTemplate(...args);
     }, [onUpdateTemplate]);
 
-    const addTemplateHandler = React.useCallback((...args) => {
+    const handleAaddTemplate = useCallback((...args) => {
         setMaintenanceDialogOpenMode(null);
         onAddTemplate && onAddTemplate(...args);
     }, [onAddTemplate]);
 
-    const deleteTemplateHandler = React.useCallback((...args) => {
+    const handleDeleteTemplate = useCallback((...args) => {
         setMaintenanceDialogOpenMode(null);
         onDeleteTemplate && onDeleteTemplate(...args);
     }, [onDeleteTemplate]);
 
-    const getSaveItem = React.useCallback(() => ({
+    const handleSetSharingSettings = useCallback((sharingSettings: SharingSettings) => {
+        setMaintenanceDialogOpenMode(null);
+        onSetTemplateSharingSettings && onSetTemplateSharingSettings(sharingSettings, currentTemplate.id);
+    }, [onSetTemplateSharingSettings, currentTemplate.id]);
+
+    const getSaveItem = useCallback(() => ({
         key: 'save',
         clickHandler: () => {
             // $FlowFixMe[incompatible-use] automated comment
@@ -54,7 +61,7 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
         element: i18n.t('Update view'),
     }), []);
 
-    const getSaveAsItem = React.useCallback((viewIsDefault: boolean, modified: boolean) => {
+    const getSaveAsItem = useCallback((viewIsDefault: boolean, modified: boolean) => {
         if (viewIsDefault && !modified) {
             return {
                 key: 'saveAs',
@@ -71,7 +78,7 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
         };
     }, []);
 
-    const getDeleteItem = React.useCallback(() => ({
+    const getDeleteItem = useCallback(() => ({
         key: 'delete',
         clickHandler: () => {
             setMaintenanceDialogOpenMode(dialogModes.DELETE);
@@ -85,7 +92,7 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
         classes.delete,
     ]);
 
-    const getShareItem = React.useCallback(() => ({
+    const getShareItem = useCallback(() => ({
         key: 'share',
         clickHandler: () => {
             setMaintenanceDialogOpenMode(dialogModes.SHARING);
@@ -93,13 +100,13 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
         element: i18n.t('Share view...'),
     }), []);
 
-    const getSavedViewSubHeader = React.useCallback((viewName: string) => ({
+    const getSavedViewSubHeader = useCallback((viewName: string) => ({
         key: 'savedViewSubHeader',
         subHeader: viewName.length > 30 ? `${viewName.substring(0, 27)}...` : viewName,
     }), []);
 
     // eslint-disable-next-line complexity
-    const customListViewMenuContentsExtended = React.useMemo(() => {
+    const customListViewMenuContentsExtended = useMemo(() => {
         const currentViewContents = [];
         const savedViewContents = [];
 
@@ -154,12 +161,13 @@ const ListViewConfigMenuContentPlain = (props: Props) => {
             <TemplateMaintenance
                 // $FlowFixMe[incompatible-type] automated comment
                 ref={templateMaintenanceInstance}
-                onClose={closeHandler}
+                onClose={handleClose}
                 mode={maintenanceDialogOpenMode}
                 currentTemplate={currentTemplate}
-                onAddTemplate={addTemplateHandler}
-                onUpdateTemplate={updateTemplateHandler}
-                onDeleteTemplate={deleteTemplateHandler}
+                onAddTemplate={handleAaddTemplate}
+                onUpdateTemplate={handleUpdateTemplate}
+                onDeleteTemplate={handleDeleteTemplate}
+                onSetSharingSettings={handleSetSharingSettings}
             />
         </React.Fragment>
     );
