@@ -11,9 +11,9 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow: upload.yml
+          workflow: artifact-upload.yml
+          pr: ${{github.event.pull_request.number}}
           workflow_conclusion: success
-          repo: "dhis2/capture-app"
           name: build
           path: build
 
