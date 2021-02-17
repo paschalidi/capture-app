@@ -10,10 +10,10 @@ jobs:
       - name: Download
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: artifact-upload.yml
-          pr: ${{github.event.pull_request.number}}
           workflow_conclusion: success
+          pr: ${{github.event.pull_request.number}}
+          run_id: ${{ github.run_id }}
           name: build
           path: build
 
