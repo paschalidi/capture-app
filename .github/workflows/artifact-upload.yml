@@ -1,4 +1,4 @@
-name: "dhis2: artifact-upload"
+name: "dhis2: upload
 on:
   push:
   pull_request:
@@ -11,6 +11,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
+
       - uses: actions/cache@v2
         id: yarn-cache
         with:
@@ -19,7 +20,7 @@ jobs:
 
       - name: Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --prod
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build:standalone
