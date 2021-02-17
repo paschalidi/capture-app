@@ -13,7 +13,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: upload.yml
           workflow_conclusion: success
-          repo: ${{ github.repository }}
+          repo: "dhis2/capture-app"
           name: build
           path: build
 
