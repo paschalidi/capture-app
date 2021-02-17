@@ -1,0 +1,30 @@
+name: "dhis2: pr-preview-netlify"
+on:
+  push:
+  pull_request:
+jobs:
+  download-webapp-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: artifact-build.yml
+          name: webapp-artifact
+          path: buiild/app
+
+      - name: Deploy artifact
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './build/app'
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-commit-comment: false
+          enable-pull-request-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1

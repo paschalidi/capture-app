@@ -1,9 +1,9 @@
-name: "dhis2: pr-preview-surge"
+name: "dhis2: pr-preview-netlify"
 on:
   push:
   pull_request:
 jobs:
-  pr-preview-deploy:
+  build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
@@ -21,10 +21,11 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile --prod
 
-      - name: Deploy
-        uses: afc163/surge-preview@v1
+      - name: Build
+        run: yarn build:standalone
+
+      - uses: actions/upload-artifact@v2
         with:
-          surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          build: yarn build:standalone
-          dist: ./build/app
+          name: webapp-artifact
+          path: ./build/app
+          retention-days: 1
