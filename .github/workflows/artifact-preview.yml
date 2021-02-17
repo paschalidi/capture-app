@@ -12,7 +12,6 @@ jobs:
         with:
           workflow: artifact-upload.yml
           workflow_conclusion: success
-          pr: ${{github.event.pull_request.number}}
           run_id: ${{ github.run_id }}
           name: build
           path: build
