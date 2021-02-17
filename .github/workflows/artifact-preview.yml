@@ -3,7 +3,13 @@ on:
   push:
   pull_request:
 jobs:
+  wait:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait
+        run: sleep 180
   download-webapp-artifact:
+    needs: wait
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
