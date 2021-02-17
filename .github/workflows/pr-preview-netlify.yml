@@ -28,7 +28,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: app-build
-          path: ./build
+          path: build
           retention-days: 1
 
   pr-preview:
@@ -44,6 +44,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: app-build
+          path: build
 
       - uses: nwtgck/actions-netlify@v1.1
         with:
