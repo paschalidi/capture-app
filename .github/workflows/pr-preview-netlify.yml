@@ -19,7 +19,7 @@ jobs:
 
       - name: Install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile --prod
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build:standalone
@@ -28,7 +28,7 @@ jobs:
         with:
           name: front-build
           path: build
-          retention-days: 10
+          retention-days: 1
 
   pr-preview-deploy:
       - uses: actions/download-artifact@v2
