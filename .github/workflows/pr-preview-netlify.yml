@@ -24,6 +24,17 @@ jobs:
       - name: Build
         run: yarn build:standalone
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: front-build
+          path: build
+          retention-days: 10
+
+  pr-preview-deploy:
+      - uses: actions/download-artifact@v2
+          with:
+            name: front-build
+            path: build
       - name: Deploy
         uses: nwtgck/actions-netlify@v1.1
         with:
