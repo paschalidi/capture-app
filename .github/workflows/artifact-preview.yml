@@ -11,7 +11,6 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: artifact-upload.yml
-          workflow_conclusion: success
           run_id: ${{ github.run_id }}
           name: build
           path: build
