@@ -14,7 +14,7 @@ const getStyles = () => ({
 const MainPagePlain = ({ currentSelectionsComplete, classes, ...passOnProps }: Props) => (
     <>
         <LockedSelector />
-        HELLO FROM PR PREVIEW
+        <h1 style={{ color: 'dodgerblue', textAlign: 'center' }}> Hello from surge PR preview </h1>
         {
             !currentSelectionsComplete ? null : (
                 <div
