@@ -14,7 +14,7 @@ const getStyles = () => ({
 const MainPagePlain = ({ currentSelectionsComplete, classes, ...passOnProps }: Props) => (
     <>
         <LockedSelector />
-        HELLO FROM PR PREVIEW
+        <h1 style={{ color: 'rgb(255 195 36)', textAlign: 'center' }}> Hello from netlify PR preview </h1>
         {
             !currentSelectionsComplete ? null : (
                 <div
