@@ -14,6 +14,7 @@ const getStyles = () => ({
 const MainPagePlain = ({ currentSelectionsComplete, classes, ...passOnProps }: Props) => (
     <>
         <LockedSelector />
+        HELLO FROM PR PREVIEW
         {
             !currentSelectionsComplete ? null : (
                 <div
